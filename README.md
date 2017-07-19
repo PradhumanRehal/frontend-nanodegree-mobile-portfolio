@@ -1,55 +1,39 @@
-## Website Performance Optimization portfolio project
+ Website Performance Optimization and Browser Rendering Optimization
+=============================================================
+Website optimization for the project of Website Performance Optimization course and Front-End Nanodegree at Udacity.
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+[Website Performance Optimization course at Udacity](https://www.udacity.com/course/ud884/)
+[Browser Rendering Optimaization course at Udacity](https://www.udacity.com/course/browser-rendering-optimization--ud860/)
 
-To get started, check out the repository and inspect the code.
 
-### Getting started
+### License
+No license information
 
-#### Part 1: Optimize PageSpeed Insights score for index.html
+### Optimizations
+* Website Performance optimization for index.html
+    * Image minification.
+    * Inlined and Minified Css.
+    * Removed Css requests.
+    
+    If you are interested in the result of this project, you can check it out [here](https://pradhumanrehal.github.io/frontend-nanodegree-mobile-portfolio/)
+Page speed scores can be tested at [here](https://developers.google.com/speed/pagespeed/insights/)
 
-Some useful tips to help you get started:
+* Browser Rendering Optimization for pizza.html
+    * Debounced onScroll animation.
+    * Optimized the pizza size selector. 
+    * Replaced querySelector & querySelectorAll with thie more performant counterparts where applicable.
+    * Inlined and minified Css.
+    * querySelector and querySelectorAll replaced by their faster counterparts.
+    * Optimized for loops.
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
+    If you are interested in the result of this project, you can check it out [here](https://pradhumanrehal.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html)
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to the top-level of your project directory to make your local server accessible remotely.
+### Download
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ./ngrok http 8080
-  ```
+Optimized code can be downloaded or cloned from the github repository [here](https://github.com/PradhumanRehal/frontend-nanodegree-mobile-portfolio)
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+### Running
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
-
-#### Part 2: Optimize Frames per Second in pizza.html
-
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
-
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
-
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
-
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
-
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+* To run the Website locally, open the index.html in your browser. Live version of the website can be found [here](https://pradhumanrehal.github.io/frontend-nanodegree-mobile-portfolio/)
+* To run the pizza.html locally, open views/pizza.html in your browser. Live verion is [here](https://pradhumanrehal.github.io/frontend-nanodegree-mobile-portfolio/views/pizza.html)

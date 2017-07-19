@@ -406,13 +406,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -439,9 +439,11 @@ var resizePizzas = function(size) {
     
 
   // Iterates through pizza elements on the page and changes their widths
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
     
-    for (var i = 0; i < randomPizzas.length; i++) {
+    //optimized the loops
+    var randomPizzaSize = randomPizzas.length;
+    for (var i = 0; i < randomPizzaSize; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
@@ -458,8 +460,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
+var pizzasDiv = document.getElementById("randomPizzas");
+for (var i = 2; i < 100; i++) {  
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -492,6 +494,7 @@ var items = document.getElementsByClassName('mover');
 var lastScrollY = 0;
 var animating = false;
 
+//Debouncing onScroll
 function onScroll(){
     lastScrollY = window.scrollY;
     requestAnimate();
@@ -510,10 +513,11 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var phase = Math.sin(window.scrollY / 1250);
-  for (var i = 0; i < items.length; i++) {
-    items[i].style.transform = 'translate3d(' + ((i % 8) * 256 + 100 * (phase + (i % 5))) + 'px, 0px, 0px)';
-  }
+  var phase = window.scrollY / 1250;
+  var totalItems = items.length;
+  for (var i = 0, len = totalItems; i < len; i++) {
+  items[i].style.transform = 'translateX(' + 100 * Math.sin(phase + i % 5)+ 'px)';
+}
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -533,13 +537,16 @@ document.addEventListener('DOMContentLoaded',
   window.requestAnimationFrame(function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 100; i++) {
-    var elem = document.createElement('img');
+  //Optimized for loop by reducing loop size and optimzed the variables
+  var movingPizza = document.getElementById("movingPizzas1");
+  var elem;
+  for (var i = 0; i < 24; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza_m.png";
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.getElementById("movingPizzas1").appendChild(elem);
+    movingPizza.appendChild(elem);
   }
   window.requestAnimationFrame(updatePositions);
 }));
