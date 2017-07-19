@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded',
     elem.src = "images/pizza_m.png";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   window.requestAnimationFrame(updatePositions);
 }));
